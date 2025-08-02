@@ -33,7 +33,7 @@ function App() {
   };
   const decrementQuantity = (index) => {
     let newProductList = [...productList];
-    newProductList[index].quantity--;
+    newProductList[index].quantity > 0 ? newProductList[index].quantity-- : (newProductList[index].quantity = 0);
     setProductList(newProductList);
   };
 
