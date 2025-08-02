@@ -25,15 +25,23 @@ function App() {
   ];
 
   const [productList, setProductList] = useState(initialProducts);
+  const [totalAmount, setotalAmount] = useState(0);
 
   const incrementQuantity = (index) => {
     let newProductList = [...productList];
+    let newTotalAmount = totalAmount;
     newProductList[index].quantity++;
+    newTotalAmount += newProductList[index].price;
+    setotalAmount(newTotalAmount)
     setProductList(newProductList);
   };
   const decrementQuantity = (index) => {
     let newProductList = [...productList];
-    newProductList[index].quantity > 0 ? newProductList[index].quantity-- : (newProductList[index].quantity = 0);
+    let newTotalAmount = totalAmount;
+    if(newProductList[index].quantity > 0 ){
+      newProductList[index].quantity--;
+      newProductList[index].quantity -= newProductList[index].quantity = 0;}  
+    setotalAmount(newTotalAmount)
     setProductList(newProductList);
   };
 
@@ -47,7 +55,7 @@ function App() {
           decrementQuantity={decrementQuantity}
         />
       </main>
-      {/* <Footer /> */}
+      <Footer  totalAmount={totalAmount} /> 
     </>
   );
 }
