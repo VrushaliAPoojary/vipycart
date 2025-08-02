@@ -2,31 +2,52 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar.js';
 import ProductList from './components/ProductList.js';
-import Footer from './components/Footer.js'
+import Footer from './components/Footer.js';
+import React, { useState } from 'react';
+
 function App() {
-  const productList = [
+  const initialProducts = [
     {
-      price: 99999,
+      price: 1000,
       name: "Product 1",
       quantity: 0
     },
     {
-      price: 9999,
+      price: 100,
       name: "Product 2",
       quantity: 0
     },
     {
-      price: 999,
+      price: 10,
       name: "Product 3",
       quantity: 0
     }
-    
-  ]
+  ];
+
+  const [productList, setProductList] = useState(initialProducts);
+
+  const incrementQuantity = (index) => {
+    let newProductList = [...productList];
+    newProductList[index].quantity++;
+    setProductList(newProductList);
+  };
+  const decrementQuantity = (index) => {
+    let newProductList = [...productList];
+    newProductList[index].quantity--;
+    setProductList(newProductList);
+  };
+
   return (
     <>
-    <Navbar />
-    <ProductList productList={productList}/>
-   {/* <Footer />*/}
+      <Navbar />
+      <main className="container mt-5"> 
+        <ProductList 
+          productList={productList} 
+          incrementQuantity={incrementQuantity} 
+          decrementQuantity={decrementQuantity}
+        />
+      </main>
+      {/* <Footer /> */}
     </>
   );
 }

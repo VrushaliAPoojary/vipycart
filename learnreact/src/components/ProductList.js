@@ -1,9 +1,19 @@
-import React from 'react'
-import Product from './Product.js'
-export default function ProductList(props) {
+import React from 'react';
+import Product from './Product.js';
+
+export default function ProductList({ productList, incrementQuantity ,decrementQuantity}) {
   return (
-    props.productList.map((product,i)=>{
-        return <Product product={product} key={i}/>
-    })
-  )
+    <>
+      {productList.map((product, i) => (
+        <Product
+          key={i}
+          product={product}
+          incrementQuantity={incrementQuantity}
+          decrementQuantity={decrementQuantity}
+          index={i}
+          
+        />
+      ))}
+    </>
+  );
 }
