@@ -23,7 +23,7 @@ function App() {
     setTotalAmount(newTotalAmount);
     setProductList(newProductList);
   };
-
+  
   const decrementQuantity = (index) => {
     let newProductList = [...productList];
     let newTotalAmount = totalAmount;
@@ -40,8 +40,16 @@ function App() {
       products.quantity = 0
       setProductList(newProductList);
       setTotalAmount(0)
-    })
-    
+    }) 
+  }
+  const removeIndex = (index) => {
+    let newProductList = [...productList];
+    let newTotalAmount = totalAmount;
+    newTotalAmount -= newProductList[index].quantity * newProductList[index].price;
+    newProductList.splice(index, 1);
+    setProductList(newProductList);
+    setTotalAmount(newTotalAmount)
+
   }
 
   return (
@@ -52,6 +60,7 @@ function App() {
           productList={productList}
           incrementQuantity={incrementQuantity}
           decrementQuantity={decrementQuantity}
+          removeIndex={removeIndex}
         />
       </main>
       <Footer totalAmount={totalAmount} resetQuantity={resetQuantity} />

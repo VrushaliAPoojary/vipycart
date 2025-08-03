@@ -1,7 +1,7 @@
 import React from 'react';
 import Product from './Product.js';
 
-export default function ProductList({ productList, incrementQuantity ,decrementQuantity}) {
+export default function ProductList({ productList, incrementQuantity ,decrementQuantity, removeIndex}) {
   return (
     <>
       {productList.map((product, i) => (
@@ -10,6 +10,8 @@ export default function ProductList({ productList, incrementQuantity ,decrementQ
           product={product}
           incrementQuantity={incrementQuantity}
           decrementQuantity={decrementQuantity}
+          removeIndex={removeIndex}
+
           index={i}
           
         />
