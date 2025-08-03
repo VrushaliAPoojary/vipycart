@@ -4,7 +4,9 @@ import Product from './Product.js';
 export default function ProductList({ productList, incrementQuantity ,decrementQuantity, removeIndex}) {
   return (
     <>
-      {productList.map((product, i) => (
+    <h1>Product List</h1>
+    {productList.length > 0 ?
+      (productList.map((product, i) => (
         <Product
           key={i}
           product={product}
@@ -15,7 +17,7 @@ export default function ProductList({ productList, incrementQuantity ,decrementQ
           index={i}
           
         />
-      ))}
+      )) ): <h1>No products in the list..Please add product</h1>}
     </>
   );
 }
