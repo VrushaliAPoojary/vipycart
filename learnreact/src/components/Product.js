@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Product(props) {
   return (
-    <div className="row mb-3">
+    <div className="row mt-3 mb-3">
       <div className="col-5">
         <h2>
           {props.product.name}
@@ -32,8 +32,13 @@ export default function Product(props) {
         </div>
       </div>
 
-      <div className="col-4">
+      <div className="col-2">
         ₹{props.product.price * props.product.quantity}
+      </div>
+      <div className="col-2">
+        <button className="btn btn-danger">
+          Remove
+        </button>
       </div>
     </div>
   );
