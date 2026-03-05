@@ -1,4 +1,4 @@
 function simple(){
     console.log("simple is complex")
 }
-module.exports = simple;
+export default simple;
