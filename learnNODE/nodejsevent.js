@@ -9,4 +9,5 @@ myEmitter.on('waterisfull', () => {
       console.log('turnoff the motor pleasssss!!!!!');
   }, 3000);
 });
-myEmitter.emit('event');
+
+myEmitter.emit('waterisfull');
