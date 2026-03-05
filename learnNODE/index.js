@@ -1,12 +1,4 @@
-const http = require('http');
+const harry = require("./second");
 
-const server = http.createServer(function(req, res){
+console.log("helloooo", appu)
 
-    res.statusCode("200");
-    res.write("hello");
-    res.end();
-
-
-})
-
-server.listen('http://127.0.0.1:3000')
